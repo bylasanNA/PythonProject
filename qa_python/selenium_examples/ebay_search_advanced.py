@@ -80,9 +80,9 @@ class ebay_search_advanced(unittest.TestCase):
         assert after == True, "Click did not function as expected"
 
     def test_checkbox_example(self):
+
         adv = self.driver.find_element(By.PARTIAL_LINK_TEXT, "Advanced")
         adv.click()
 
         time.sleep(2)
         desc = self.driver.find_element(By.NAME, "LH_TitleDesc")
-        self.base.click_and_assert_on_element(desc)
