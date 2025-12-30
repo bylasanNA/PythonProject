@@ -29,13 +29,13 @@ class AllTests(unittest.TestCase):
         url = self.driver.current_url
         assert "https://www.apple.com/il/search/" in url, "Unexpected URL."
 
-        self.search_page.check_results_found_number()
+        self.search_page.check_results_found_number_plus_assertion()
 
     def test_main_buttons_exist(self):
         buttons_count = self.main_page.check_navigation_buttons()
         assert buttons_count == 6, "Unexpected number of navigation buttons."
 
-    def test_apple_logo(self):
+    def test_apple_logo_works(self):
         self.main_page.mac_button()
         url = self.driver.current_url
         assert url == "https://www.apple.com/il/mac/", "Unexpected URL."

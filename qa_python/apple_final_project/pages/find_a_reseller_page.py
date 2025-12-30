@@ -20,4 +20,3 @@ class FindAResellerPage:
         results_as_text = sales_results.text
         print(f"Text found after searching is: {results_as_text}")
         return results_as_text
-

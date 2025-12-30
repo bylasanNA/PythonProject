@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver import Keys
 
 from qa_python.apple_final_project.locators import MainPageLocators
@@ -13,6 +15,7 @@ class MainPage:
 
         search_for_a_product = self.driver.find_element(*MainPageLocators.SEARCH_FOR_PRODUCT)
         search_for_a_product.send_keys(product)
+        time.sleep(1)
         search_for_a_product.send_keys(Keys.ENTER)
 
     def check_navigation_buttons(self):
