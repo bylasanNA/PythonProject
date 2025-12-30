@@ -1,4 +1,4 @@
-from selenium.webdriver.common.by import By
+from qa_python.apple_final_project.locators import WhereToBuyPageLocators
 
 
 class WhereToBuyPage:
@@ -6,8 +6,5 @@ class WhereToBuyPage:
         self.driver = driver
 
     def find_a_reseller_button(self):
-        find_a_reseller = self.driver.find_element(By.CLASS_NAME, "icon-copy")
+        find_a_reseller = self.driver.find_element(*WhereToBuyPageLocators.FIND_A_RESELLER)
         find_a_reseller.click()
-
-        url = self.driver.current_url
-        assert url == "https://locate.apple.com/il/en/sales", "Unexpected URL."

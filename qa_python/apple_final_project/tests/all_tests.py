@@ -26,20 +26,41 @@ class AllTests(unittest.TestCase):
 
     def test_search_for_a_product(self):
         self.main_page.search_for_product(PRODUCT)
+        url = self.driver.current_url
+        assert "https://www.apple.com/il/search/" in url, "Unexpected URL."
+
         self.search_page.check_results_found_number()
 
     def test_main_buttons_exist(self):
-        self.main_page.check_navigation_buttons()
+        buttons_count = self.main_page.check_navigation_buttons()
+        assert buttons_count == 6, "Unexpected number of navigation buttons."
 
     def test_apple_logo(self):
         self.main_page.mac_button()
+        url = self.driver.current_url
+        assert url == "https://www.apple.com/il/mac/", "Unexpected URL."
+
         self.mac_page.apple_logo()
+        url = self.driver.current_url
+        assert url == "https://www.apple.com/il/", "Unexpected URL."
 
     def test_text_is_found_in_page(self):
         self.main_page.where_to_buy_button()
+        url = self.driver.current_url
+        assert url == "https://www.apple.com/il/buy/", "Unexpected URL."
+
         self.where_to_buy_page.find_a_reseller_button()
-        self.find_a_reseller_page.search_location_and_product(LOCATION)
+        url = self.driver.current_url
+        assert url == "https://locate.apple.com/il/en/sales", "Unexpected URL."
+
+        results_as_text = self.find_a_reseller_page.search_location_and_product(LOCATION)
+        assert "sales locations near" in results_as_text, "Unexpected text after searching for product."
 
     def test_find_a_store_correct_page(self):
         self.main_page.learn_more_button()
+        url = self.driver.current_url
+        assert url == "https://www.apple.com/il/iphone-17-pro/", "Unexpected URL."
+
         self.learn_more_page.find_a_store_button()
+        url = self.driver.current_url
+        assert url == "https://www.apple.com/il/buy/?iphone", "Unexpected URL."

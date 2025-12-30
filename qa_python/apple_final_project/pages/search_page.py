@@ -1,4 +1,4 @@
-from selenium.webdriver.common.by import By
+from qa_python.apple_final_project.locators import SearchPageLocators
 
 
 class SearchPage:
@@ -6,7 +6,7 @@ class SearchPage:
         self.driver = driver
 
     def check_results_found_number(self):
-        results = self.driver.find_element(By.CLASS_NAME, "as-search-results-value")
+        results = self.driver.find_element(*SearchPageLocators.RESULTS)
         text = results.text.split()
 
         for i in range(len(text)):

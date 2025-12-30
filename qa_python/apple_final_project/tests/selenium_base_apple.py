@@ -3,7 +3,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 
 class SeleniumBaseApple:
-
     def selenium_start_with_url(self, url):
         print("*****Test Start*****")
         service = ChromeService(executable_path=ChromeDriverManager().install())

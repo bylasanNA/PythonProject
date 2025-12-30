@@ -1,4 +1,4 @@
-from selenium.webdriver.common.by import By
+from qa_python.apple_final_project.locators import MacPageLocators
 
 
 class MacPage:
@@ -6,8 +6,5 @@ class MacPage:
         self.driver = driver
 
     def apple_logo(self):
-        apple_logo = self.driver.find_element(By.CLASS_NAME, "globalnav-link.globalnav-link-apple")
+        apple_logo = self.driver.find_element(*MacPageLocators.APPLE_LOGO)
         apple_logo.click()
-
-        url = self.driver.current_url
-        assert url == "https://www.apple.com/il/", "Unexpected URL."
