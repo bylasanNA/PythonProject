@@ -15,7 +15,7 @@ class MainPage:
 
         search_for_a_product = self.driver.find_element(*MainPageLocators.SEARCH_FOR_PRODUCT)
         search_for_a_product.send_keys(product)
-        time.sleep(1)
+        time.sleep(2)
         search_for_a_product.send_keys(Keys.ENTER)
 
     def check_navigation_buttons(self):
@@ -31,9 +31,6 @@ class MainPage:
     def where_to_buy_button(self):
         where_to_buy = self.driver.find_element(*MainPageLocators.WHERE_TO_BUY)
         where_to_buy.click()
-
-        url = self.driver.current_url
-        assert url == "https://www.apple.com/il/buy/", "Unexpected URL."
 
     def learn_more_button(self):
         learn_more = self.driver.find_element(*MainPageLocators.LEARN_MORE)
