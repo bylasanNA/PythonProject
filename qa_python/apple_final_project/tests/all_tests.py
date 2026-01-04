@@ -31,13 +31,13 @@ class AllTests(unittest.TestCase):
 
         self.search_page.check_results_found_number_plus_assertion()
 
-        print("Search for a product test was successful." )
+        print("Search for a product opened the search results page successfully." )
 
     def test_count_navigation_buttons(self):
         buttons_count = self.main_page.count_navigation_buttons()
         assert buttons_count == 6, "Unexpected number of navigation buttons."
 
-        print("Count navigation buttons test was successful.")
+        print("The main navigation has the expected number of navigation buttons.")
 
     def test_apple_logo_button_works(self):
         self.main_page.mac_button()
@@ -48,7 +48,7 @@ class AllTests(unittest.TestCase):
         url = self.driver.current_url
         assert url == "https://www.apple.com/il/", "Main page URL is not as expected."
 
-        print("Apple logo button works test was successful.")
+        print("Clicking the Apple logo returned to the main page.")
 
     def test_text_is_found_in_page(self):
         self.main_page.where_to_buy_button()
@@ -62,7 +62,7 @@ class AllTests(unittest.TestCase):
         results_as_text = self.find_a_reseller_page.search_location_and_product(LOCATION)
         assert "sales locations near" in results_as_text, "Unexpected text after searching for product."
 
-        print("Text found in page test was successful.")
+        print("The reseller search displayed the expected text.")
 
     def test_find_a_store_correct_page(self):
         self.main_page.learn_more_button()
@@ -73,4 +73,4 @@ class AllTests(unittest.TestCase):
         url = self.driver.current_url
         assert url == "https://www.apple.com/il/buy/?iphone", "Find a store page URL is not as expected."
 
-        print("Find a store correct page test was successful.")
+        print("The Find a Store button opened the correct page.")
