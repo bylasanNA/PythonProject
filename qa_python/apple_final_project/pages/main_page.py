@@ -18,7 +18,7 @@ class MainPage:
         time.sleep(2)
         search_for_a_product.send_keys(Keys.ENTER)
 
-    def check_navigation_buttons(self):
+    def count_navigation_buttons(self):
         navigation_buttons = self.driver.find_elements(*MainPageLocators.NAVIGATION_BUTTONS)
         buttons_count = len(navigation_buttons)
         print(f"There are {buttons_count} navigation navigation_buttons.")

@@ -34,7 +34,7 @@ class AllTests(unittest.TestCase):
         print("Search for a product test was successful." )
 
     def test_count_navigation_buttons(self):
-        buttons_count = self.main_page.check_navigation_buttons()
+        buttons_count = self.main_page.count_navigation_buttons()
         assert buttons_count == 6, "Unexpected number of navigation buttons."
 
         print("Count navigation buttons test was successful.")
